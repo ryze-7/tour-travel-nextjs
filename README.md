@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tour & Travel Website — Next.js
 
-## Getting Started
+This is a dynamic tour and travel website built with **Next.js** where all tour packages, destinations, pricing, and itineraries are managed using **Google Sheets**.
 
-First, run the development server:
+The goal of this project is to let a travel agency update their website content without needing any technical knowledge or developer support.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The business owner adds or edits tour data in Google Sheets.  
+That data is converted into an API and automatically fetched by the Next.js app.  
+The website updates itself whenever the sheet is changed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+There is no traditional backend or admin panel.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## What This Solves
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Most small travel businesses struggle to keep their websites updated.  
+This system allows them to manage their entire website using a simple spreadsheet instead.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Dynamic tour packages  
+- Destination-based pages  
+- Multi-day itineraries  
+- Images and pricing loaded from Google Sheets  
+- Fast, SEO-friendly Next.js pages  
+- No backend required  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Tech Stack
+
+- Next.js  
+- React  
+- Tailwind CSS  
+- Google Sheets  
+- SheetDB  
+
+---
+
+## Author
+
+Shourya Kashyap  
+
+
+Built as a real-world project for a scalable travel website.
