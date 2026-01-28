@@ -40,3 +40,8 @@ export async function getExclusions() {
 export async function getPolicies() {
   return sheetFetch(`${BASE}?sheet=policies`);
 }
+
+export async function getDestinations() {
+  return sheetFetch(`${BASE}?sheet=destinations`);
+}
+
