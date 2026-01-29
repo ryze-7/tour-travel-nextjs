@@ -38,14 +38,15 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-7 h-7">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-              </svg>
-              <span className="text-xl font-bold">My Marzi</span>
+              <img 
+                src="/favicon.ico" 
+                alt="Logo" 
+                className="w-7 h-7" 
+              />
+              <span className="text-xl font-bold">MyMarzi</span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Your trusted travel partner for unforgettable journeys across the world.
+              Because Travel should be your Marzi
             </p>
             <div className="flex gap-4 pt-2">
               {/* Instagram - FIXED TAG OPENING */}
@@ -126,11 +127,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 text-center md:flex md:justify-between text-sm text-gray-500">
-          <p>© {currentYear} My Marzi. All rights reserved.</p>
-          <div className="flex justify-center gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
-          </div>
+          
         </div>
       </div>
     </footer>

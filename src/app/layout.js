@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "My Marzi - Travel Agency",
-  description: "Your trusted travel partner for unforgettable journeys",
+  title: "MyMarzi - Travel Agency",
+  description: "Because Travel should be Your Marzi",
 };
 
 export default function RootLayout({ children }) {

@@ -52,7 +52,6 @@ export default function CTASection() {
     setSubmitStatus(null);
 
     try {
-      // Ensure this endpoint matches your Next.js API route folder structure
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -90,12 +89,12 @@ export default function CTASection() {
 
   return (
     <section 
-      id="contact-section" // FIXED: Added ID for Navbar/Footer linking
+      id="contact-section"
       ref={sectionRef} 
-      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#009C85] to-[#008774] scroll-mt-20" // FIXED: Added scroll-mt-20
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#009C85] to-[#008774] scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Side - Content */}
           <div 
@@ -103,40 +102,40 @@ export default function CTASection() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed">
-              Let us know your travel dreams and we'll create the perfect itinerary just for you. Our travel experts are ready to help you plan an unforgettable adventure.
+            <p className="text-sm sm:text-base text-white/90 mb-6 sm:mb-7 leading-relaxed max-w-lg">
+              Share your travel dreams with us, and we&apos;ll craft a personalized itinerary that matches your style, preferences, and pace—without fixed packages or rushed schedules.
             </p>
             
             {/* Features List */}
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 flex-shrink-0 mt-1">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
                 <div>
-                  <h3 className="font-semibold text-lg">Quick Response</h3>
-                  <p className="text-white/80 text-sm">We'll get back to you within 24 hours</p>
+                  <h3 className="font-semibold text-base sm:text-lg">Curated Luxury Stays</h3>
+                  <p className="text-white/80 text-xs sm:text-sm">Handpicked premium resorts, boutique hotels, and exclusive homestays</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 flex-shrink-0 mt-1">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
                 <div>
-                  <h3 className="font-semibold text-lg">Customized Packages</h3>
-                  <p className="text-white/80 text-sm">Tailored to your preferences and budget</p>
+                  <h3 className="font-semibold text-base sm:text-lg">Personalized Planning</h3>
+                  <p className="text-white/80 text-xs sm:text-sm">Every journey designed around your travel style and interests</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 flex-shrink-0 mt-1">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
                 <div>
-                  <h3 className="font-semibold text-lg">24×7 Support</h3>
-                  <p className="text-white/80 text-sm">Professional advice from travel specialists</p>
+                  <h3 className="font-semibold text-base sm:text-lg">End-to-End Support</h3>
+                  <p className="text-white/80 text-xs sm:text-sm">Seamless coordination from planning to on-ground assistance</p>
                 </div>
               </div>
             </div>
@@ -148,13 +147,13 @@ export default function CTASection() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-2xl">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-5">Get in Touch</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">
                     Full Name *
                   </label>
                   <input
@@ -164,14 +163,14 @@ export default function CTASection() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">
                     Email Address *
                   </label>
                   <input
@@ -181,14 +180,14 @@ export default function CTASection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">
                     Phone Number *
                   </label>
                   <input
@@ -198,14 +197,14 @@ export default function CTASection() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
 
                 {/* Destination */}
                 <div>
-                  <label htmlFor="destination" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="destination" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">
                     Interested Destination
                   </label>
                   <input
@@ -214,14 +213,14 @@ export default function CTASection() {
                     name="destination"
                     value={formData.destination}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all"
                     placeholder="e.g., Bali, Dubai, Switzerland"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">
                     Message
                   </label>
                   <textarea
@@ -229,8 +228,8 @@ export default function CTASection() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all resize-none"
+                    rows="3"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009C85] focus:border-transparent outline-none transition-all resize-none"
                     placeholder="Tell us about your travel plans..."
                   />
                 </div>
@@ -239,7 +238,7 @@ export default function CTASection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#009C85] hover:bg-[#008774] text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full bg-[#009C85] hover:bg-[#008774] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 text-sm sm:text-base"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -256,21 +255,21 @@ export default function CTASection() {
 
                 {/* Success Message */}
                 {submitStatus === "success" && (
-                  <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                  <div className="bg-green-50 border border-green-200 text-green-800 px-3 py-2 rounded-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                    <span className="text-sm font-medium">Thank you! We'll get back to you soon.</span>
+                    <span className="text-xs sm:text-sm font-medium">Thank you! We&apos;ll get back to you soon.</span>
                   </div>
                 )}
 
                 {/* Error Message */}
                 {submitStatus === "error" && (
-                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                  <div className="bg-red-50 border border-red-200 text-red-800 px-3 py-2 rounded-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                     </svg>
-                    <span className="text-sm font-medium">Something went wrong. Please try again.</span>
+                    <span className="text-xs sm:text-sm font-medium">Something went wrong. Please try again.</span>
                   </div>
                 )}
               </form>
