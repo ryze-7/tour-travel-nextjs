@@ -1,29 +1,54 @@
-import { getPackages } from "@/lib/sheetdb";
-import PackageCard from "@/components/PackageCard";
+import DestinationHero from "@/components/DestinationHero";
+import PackagesList from "@/components/PackagesList";
+import ValueProposition from "@/components/ValueProposition";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
+import { getDestinations, getPackages } from "@/lib/sheetdb";
+import { notFound } from "next/navigation";
 
-export default async function Destination({ params }) {
-  // NEW: unwrap params
+export default async function DestinationPage({ params }) {
   const { name } = await params;
-
-  const data = await getPackages();
-
-  const packages = data.filter(
-    p =>
-      p.destination &&
-      p.destination.toLowerCase() === name.toLowerCase()
-  );
+  
+  // Fetch all destinations and packages
+  const destinations = await getDestinations();
+  const allPackages = await getPackages();
+  
+  // Find the specific destination by slug
+  const destination = destinations.find(dest => dest.slug === name);
+  
+  // If destination not found, show 404
+  if (!destination) {
+    notFound();
+  }
+  
+  // Filter packages for this destination
+  const destinationPackages = allPackages.filter(pkg => pkg.destination === name);
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6 capitalize">
-        {name} Packages
-      </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {packages.map(p => (
-          <PackageCard key={p.id} data={p} />
-        ))}
-      </div>
-    </div>
+    <>
+      <DestinationHero destination={destination} />
+      <PackagesList packages={destinationPackages} />
+      <ValueProposition />
+      <CTASection />
+      <Footer />
+    </>
   );
+}
+
+// Generate metadata for SEO
+export async function generateMetadata({ params }) {
+  const { name } = await params;
+  const destinations = await getDestinations();
+  const destination = destinations.find(dest => dest.slug === name);
+  
+  if (!destination) {
+    return {
+      title: 'Destination Not Found'
+    };
+  }
+
+  return {
+    title: `${destination.name} - ${destination.subtitle} | My Marzi`,
+    description: destination.description || `Explore ${destination.name} with My Marzi. ${destination.subtitle}`,
+  };
 }
