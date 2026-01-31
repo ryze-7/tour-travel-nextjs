@@ -3,21 +3,40 @@ const TOKEN = process.env.SHEETDB_TOKEN;
 
 // This helper contains the secret "Authorization" header
 async function sheetFetch(url) {
-  const res = await fetch(url, {
-    cache: "no-store",
-    headers: {
-      "Authorization": `Bearer ${TOKEN}`,
-      "Content-Type": "application/json"
+  try {
+    const res = await fetch(url, {
+      next: { revalidate: 3600 }, // Cache for 1 hour instead of no-store
+      headers: {
+        "Authorization": `Bearer ${TOKEN}`,
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!res.ok) {
+      // Handle specific error codes
+      if (res.status === 404) {
+        console.error('Sheet not found:', url);
+        throw new Error('SHEET_NOT_FOUND');
+      }
+      if (res.status === 429) {
+        console.error('SheetDB rate limit exceeded');
+        throw new Error('RATE_LIMIT_EXCEEDED');
+      }
+      if (res.status === 401 || res.status === 403) {
+        console.error('SheetDB authentication error');
+        throw new Error('AUTH_ERROR');
+      }
+      
+      // Try to get error details from response
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || `HTTP error! status: ${res.status}`);
     }
-  });
 
-  if (!res.ok) {
-    // This will help you see the exact error from SheetDB in your terminal
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData.error || `Error: ${res.status}`);
+    return res.json();
+  } catch (error) {
+    console.error('SheetDB fetch error:', error.message, 'URL:', url);
+    throw error; // Re-throw to be caught by Next.js error boundary
   }
-
-  return res.json();
 }
 
 export async function getPackages() {
