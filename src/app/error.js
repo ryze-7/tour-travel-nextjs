@@ -28,7 +28,7 @@ export default function Error({ error, reset }) {
         
         <p className="text-gray-600 mb-8 leading-relaxed">
           We&apos;re experiencing high traffic right now. Please try again in a few moments or contact us directly.
-        </p>
+        </p> 
 
         <div className="space-y-3">
           <button
