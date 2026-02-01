@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://my-marzi.vercel.app/sitemap.xml

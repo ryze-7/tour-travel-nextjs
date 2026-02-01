@@ -65,13 +65,16 @@ export async function generateMetadata({ params }) {
   const packageData = packages.find(pkg => pkg.id === id);
   
   if (!packageData) {
-    return {
-      title: 'Package Not Found'
-    };
+    return { title: 'Package Not Found' };
   }
 
   return {
-    title: `${packageData.title} - ${packageData.days} Days Tour | My Marzi`,
-    description: packageData.overview || `Explore ${packageData.title} with My Marzi. ${packageData.days} days, ${packageData.nights} nights starting from ₹${packageData.price}`,
+    title: `${packageData.title} - ${packageData.days} Days Tour | MyMarzi`,
+    description: packageData.overview || `Explore ${packageData.title} with MyMarzi. ${packageData.days} days, ${packageData.nights} nights starting from ₹${packageData.price}`,
+    openGraph: {
+      title: `${packageData.title} - ${packageData.days} Days Tour | MyMarzi`,
+      description: packageData.overview,
+      images: [packageData.image],
+    },
   };
 }
